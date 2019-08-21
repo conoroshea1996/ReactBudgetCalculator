@@ -3,12 +3,12 @@ import Item from './ExpenseItem';
 import { MdDeleteForever } from 'react-icons/md'
 import { IconContext } from 'react-icons'
 
-const ExpenseList = ({ expenses }) => {
+const ExpenseList = ({ expenses, handleDelete }) => {
     return (
         <>
             <ul className="list">
                 {expenses.map((expense) => {
-                    return <Item key={expense.id} expense={expense} />;
+                    return <Item key={expense.id} expense={expense} handleDelete={handleDelete} />;
                 })}
             </ul>
             {expenses.length > 0 && <button className='btn'>

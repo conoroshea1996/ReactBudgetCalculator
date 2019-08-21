@@ -13,6 +13,12 @@ const initalExpense = [
 ]
 
 function App() {
+  // handle delete
+  const handleDelete = id => {
+    let tempExpenses = expenses.filter(item => item.id !== id);
+    setExpenses(tempExpenses);
+  };
+
   console.log(useState());
   const [expenses, setExpenses] = useState(initalExpense);
 
@@ -22,7 +28,7 @@ function App() {
       <h1> Budget Calculator </h1>
       <main className="App">
         <ExpenseForm />
-        <ExpenseList expenses={expenses} />
+        <ExpenseList expenses={expenses} handleDelete={handleDelete} />
       </main>
       <h1>
         total Spending: <span className="total">
